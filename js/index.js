@@ -16,9 +16,6 @@ const getBase64 = (file) => {
     })
 }
 
-
-
-
 // Event Listeners
 submitBtn.addEventListener('click', e => {
     e.preventDefault();

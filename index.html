@@ -83,45 +83,14 @@
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
                 </div>
-                <div class="post-comments">
+                <!-- <div class="post-comments">
                     <div class="comment">
                         <div class="comment-avatar">
                             <i class="fa-regular fa-circle-user"></i>
                         </div>
                         <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla molestiae facilis maiores expedita suscipit, repellendus optio magni accusamus minima cumque totam officiis asperiores provident dolore doloribus eaque reiciendis deserunt itaque.</p>
                     </div>
-                </div>
-            </div>
-            <div class="post">
-                <div class="poster">
-                    <i class="fa-regular fa-circle-user"></i>
-                    <span class="poster-title">User</span>
-                </div>
-                <div class="post-img-container">
-                    <img src="assets/images/cayseypetty.jpg" alt="Post Image" class="post-img">
-                </div>
-                <div class="post-text">
-                    <span>User</span>
-                    <p>This is a sample text</p>
-                </div>
-                <div class="post-interaction">
-                    <div class="left">
-                        <i class="fa-regular fa-heart"></i>
-                        <i class="fa-regular fa-comment"></i>
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </div>
-                    <div class="right">
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
-                </div>
-                <div class="post-comments">
-                    <div class="comment">
-                        <div class="comment-avatar">
-                            <i class="fa-regular fa-circle-user"></i>
-                        </div>
-                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
@@ -129,9 +98,9 @@
         <form method="dialog" id="post-form">
             <h2>Create a Post</h2>
             <label for="file">Choose an Image to post</label>
-            <input type="file" name="file" id="file" accept="image/*">
+            <input type="file" name="file" id="file" accept="image/*" required>
             <label for="img-text">Add a caption</label>
-            <input type="text" id="text" name="text" required>
+            <input type="text" id="text" name="text">
             <div class="buttons">
                 <input type="submit" value="Submit" id="submitBtn" class="formBtn">
                 <button value="cancel" id="cancelBtn" class="formBtn">Cancel</button>

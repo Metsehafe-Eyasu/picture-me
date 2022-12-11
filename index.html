@@ -17,7 +17,7 @@
     <meta property="og:image" content="image.png"> 
         <!-- OPTIONAL -->
     <meta property="og:description" content="Picture-Me is a project made with Vanilla JS that is meant to be a clone of instagram">
-    <meta property="og:locale" content="en-US">
+    <meta property="og:locale" content="en-global">
     <meta property="og:site_name" content="Picture-Me">
 
 
@@ -31,21 +31,114 @@
 </head>
 <body>
     <header>
-        <!-- Website name and logo here-->
         <h1>Picture Me</h1>
     </header>
     <nav>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><i class="fa-solid fa-house"></i></li>
+            <li><i class="fa-regular fa-message"></i></li>
+            <li><i class="fa-regular fa-compass"></i></li>
+            <li><i class="fa-regular fa-heart"></i></li>
+            <li><i class="fa-regular fa-circle-user"></i></li>
         </ul>
     </nav>
     <main>
-        <!-- Main content here -->
+        <!--    Main content here   -->
+        <!-- Stories Container -->
+        <div class="stories">
+            <div class="story">
+                <div class="story-img-container">
+                    <img class="story-image" src="/assets/images/cayseypetty.jpg">
+                </div>
+                <span class="story-title">Chala Chub</span>
+            </div>
+            <div class="story">
+                <div class="story-img-container">
+                    <img class="story-image" src="/assets/images/cayseypetty.jpg">
+                </div>
+                <span class="story-title">Chala Chub</span>
+            </div>
+        </div> 
+        <!--Posts Container-->
+        <div class="posts" id="posts">
+            <div class="post">
+                <div class="poster">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <span class="poster-title">User</span>
+                </div>
+                <div class="post-img-container">
+                    <img src="assets/images/cayseypetty.jpg" alt="Post Image" class="post-img">
+                </div>
+                <div class="post-text">
+                    <span>User</span>
+                    <p>This is a sample text</p>
+                </div>
+                <div class="post-interaction">
+                    <div class="left">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <div class="right">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="post-comments">
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <i class="fa-regular fa-circle-user"></i>
+                        </div>
+                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla molestiae facilis maiores expedita suscipit, repellendus optio magni accusamus minima cumque totam officiis asperiores provident dolore doloribus eaque reiciendis deserunt itaque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="poster">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <span class="poster-title">User</span>
+                </div>
+                <div class="post-img-container">
+                    <img src="assets/images/cayseypetty.jpg" alt="Post Image" class="post-img">
+                </div>
+                <div class="post-text">
+                    <span>User</span>
+                    <p>This is a sample text</p>
+                </div>
+                <div class="post-interaction">
+                    <div class="left">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <div class="right">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="post-comments">
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <i class="fa-regular fa-circle-user"></i>
+                        </div>
+                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <dialog id="post-select">
+        <form method="dialog" id="post-form">
+            <h2>Create a Post</h2>
+            <label for="file">Choose an Image to post</label>
+            <input type="file" name="file" id="file" accept="image/*">
+            <label for="img-text">Add a caption</label>
+            <input type="text" id="text" name="text" required>
+            <div class="buttons">
+                <input type="submit" value="Submit" id="submitBtn" class="formBtn">
+                <button value="cancel" id="cancelBtn" class="formBtn">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+    <button id="show-modal"><i class="fa-solid fa-plus"></i></button>
     <footer>
         <!-- Copyright notices and other footer content here -->
     </footer>

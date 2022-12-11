@@ -1,7 +1,291 @@
+@import url("/css/fontawesome.css");
+@import url("/css/regular.css");
+@import url("/css/solid.css");
+
+$fa-font-path: "/webfonts";
 $font-stack: Helvetica, sans-serif;
-$primary-color: #696969;
+$primary-color: #EDE6DB;
+$secondary-color: #1A3C40;
+$tertiary-color: #E0E0D0;
+$quaternary-color: #417D7A;
+
+@mixin fit-container{
+    width: 100%;
+    height: 100%;
+}
+@mixin center($total: 1){
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat($total, 1fr);
+    gap: 1rem;
+}
+@mixin aligner($dir: row){
+    display: grid;
+    grid-auto-flow: $dir;
+    align-items: center;
+    justify-content: flex-start;
+}
+@mixin img-cont{
+    position: relative;
+    overflow: hidden;
+}
+@mixin img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    color: $secondary-color;
+    border-color: $tertiary-color;
+    box-sizing: border-box;
+}
 
 body{
     background-color: $primary-color;
     font-family: $font-stack;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    grid-template-areas: "head nav"
+                         "main main"
+                         "footer footer";
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 3rem;
+}
+
+header {
+    grid-area: head;
+    grid-column: 1fr;
+    display: grid;
+    align-items: center;
+    padding-left: 15%;
+    text-align: left;
+    @include fit-container;
+}
+
+nav{
+    grid-area: nav;
+    margin-right: 20%;
+    font-size: 1.5rem;
+    @include fit-container;
+    display: grid;
+    place-items: center;
+    ul {
+        @include center($total: 5);
+    }
+}
+
+main{
+    grid-area: main;
+    // background-color: red;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto;
+    place-items: center;
+    .stories{
+        // background-color: aqua;
+        width: 30rem;
+        height: 5rem;
+        border: 1px solid $tertiary-color;
+        border-radius: 5px;
+
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: flex-start;
+        .story{
+            display: grid;
+            place-items: center;
+            width: 4rem;
+            height: 4rem;
+            // background-color: green;
+            .story-img-container{
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                position: relative;
+                overflow: hidden;
+                .story-image{
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+            .story-title{
+                color: $secondary-color;
+                width: 100%;
+                font-size: 0.6rem;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        } 
+    }
+    .posts{
+        padding-top: 2rem;
+        width: 30rem;
+        @include aligner;
+        gap: 1rem;
+        .post{
+            @include aligner;
+            width: 100%;
+            border: 1px solid #E0E0D0;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 1px $secondary-color;
+            .poster{
+                @include aligner($dir: column);
+                text-align: left;
+                padding: 0.5rem;
+                i{
+                    font-size: 1.5rem;
+                    margin-right: 1rem;
+                }
+                .poster-title{
+                    font-size: 1.2rem;
+                }
+            }
+            .post-img-container{
+                width: 30rem;
+                overflow: hidden;
+                max-height: 40rem;
+                .post-img{
+                    width: 100%;
+                }
+            }
+            .post-text{
+                @include aligner(column);
+                gap: 1rem;
+                text-align: left;
+                padding: 0.5rem 1rem;
+                border: 0.5px solid $tertiary-color;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                span{
+                    font-weight: 700;
+                }
+            }
+            .post-interaction{
+                font-size: 1.2rem;
+                @include aligner(column);
+                padding: 0.5rem 1rem;
+                justify-content: space-between;
+                border-bottom: 0.5px solid $tertiary-color;
+                .left{
+                    width: 6rem;
+                    @include aligner(column);
+                    justify-content: space-between
+                }
+            }
+            .comment{
+                height: 4rem;
+                // background-color: red;
+                @include aligner(column);
+                align-items: flex-start;
+                padding: 1rem;
+                gap: 1rem;
+                border: 0.5px solid $tertiary-color;
+                .comment-avatar{
+                    height: 2rem;
+                    width: 2rem;
+                    i{
+                        font-size: 1.5rem;
+                    }
+                }
+                .comment-text{
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+#show-modal{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px rgba($color: #417D7A , $alpha: 0.5);
+    border: none;
+    font-size: 1.2rem;
+
+}#show-modal:hover{
+    box-shadow: 0px 0px 3px rgba($color: #417D7A, $alpha: 0.8)
+}
+#post-select{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 21rem;
+    width: 35rem;
+    border-radius: 1rem;
+    border: none;
+    #post-form{
+        // @include aligner();
+        display: grid;
+        // justify-content: center;
+        align-items: flex-start;
+        gap: 0.5rem;
+        // background-color: blue;
+        width: 100%;
+        margin: 1rem auto;
+        padding: 0 2rem;
+        text-align: left;
+        h2{
+            margin-bottom: 1rem;
+        }
+        input[type=file]{
+            height: 3rem;
+            background-color: red;
+        }
+        input[type=text]{
+            border: none;
+            border-radius: 0.2rem;
+            box-shadow: 0px 0px 2px rgba($color: #417D7A , $alpha: 0.5);
+            width: 100%;
+            height: 4rem;
+            background-color: red;
+            margin-bottom: 1rem;
+        }
+        .buttons{
+            width: 100%;
+            @include aligner(column);
+            justify-content: space-between;
+            .formBtn{
+                border: none;
+                font-size: 1.2rem;
+                padding: 0.3rem 1rem;
+                border-radius: 0.2rem;
+                background-color: $primary-color;
+                box-shadow: 0px 0px 2px rgba($color: #417D7A , $alpha: 0.5);
+            }
+            .formBtn:last-child{
+                background-color: #db3131;
+                color: $tertiary-color;
+            }
+        }
+    }
+    #post-form > label{
+        text-align: left;
+        font-size: 1.2rem;
+    }
+}
+#post-select::backdrop{
+    background-color: rgba($color: #000, $alpha: 0.8);
 }

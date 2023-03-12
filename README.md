@@ -10,6 +10,7 @@ This is an Instagram clone that has only the front end implemented, allowing use
   <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" width="40" height="40">
   <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" width="40" height="40">
 </p>
+
 ## Features
 
 - Users can upload images by selecting an image file from their device
